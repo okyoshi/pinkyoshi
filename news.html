@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen&display=swap">
+    <title>Global News</title>
+    <style>
+        .feed-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body id="rss">
+
+   <div class="header-container">
+    <div class="left-content">
+        <a href="file:///Users/jonathan/Library/Mobile%20Documents/com~apple~CloudDocs/web/2k/start.html">
+            <img src="pp.png" alt="Profile Picture" class="profile-pic"/>
+        </a>
+        <a class="start-h" href="file:///Users/jonathan/Library/Mobile%20Documents/com~apple~CloudDocs/web/2k/start.html">Global News</a>
+    </div>
+
+</div>
+
+
+    <div id="feedContainer"></div>
+
+    <script>
+        // Sample RSS feed URLs (replace with your own)
+        // Modified RSS feed structure with custom titles
+const rssFeeds = [
+    {
+        url: 'https://www.theverge.com/rss/index.xml',
+        customTitle: 'the verge'
+    },
+    {
+        url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
+        customTitle: 'nyt'
+    },
+    {
+        url: 'http://rss.cnn.com/rss/cnn_latest.rss',
+        customTitle: 'cnn'
+    },
+    {
+        url: 'https://feeds.bbci.co.uk/news/world/rss.xml',
+        customTitle: 'bbc'
+    },
+    {
+        url: 'https://www.aljazeera.com/xml/rss/all.xml',
+        customTitle: 'al jazeera'
+    },
+    {
+        url: 'https://www.cnbc.com/id/100727362/device/rss/rss.html',
+        customTitle: 'cnbc'
+    }
+
+];
+
+let aggregatedArticles = [];
+
+// Fetch RSS content using rss2json service
+Promise.all(rssFeeds.map(feed => 
+    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'ok') {
+                data.items.forEach(item => {
+                    aggregatedArticles.push({
+                        title: item.title,
+                        link: item.link,
+                        description: item.description, // Added the description
+                        pubDate: new Date(item.pubDate),
+                        source: feed.customTitle
+                    });
+                });
+            }
+        })
+)).then(() => {
+    // Sort articles by publication date (newest first)
+    aggregatedArticles.sort((a, b) => b.pubDate - a.pubDate);
+    
+    displayFeed(aggregatedArticles);
+});
+
+// Display the RSS content
+function displayFeed(articles) {
+    const container = document.getElementById('feedContainer');
+    articles.forEach(article => {
+        let feedItem = document.createElement('div');
+        feedItem.classList.add('feed-item');
+
+
+
+        let link = document.createElement('a');
+        link.href = article.link;
+        let formattedTime = article.pubDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        link.textContent = `${article.title} (${article.source}) - ${formattedTime}`;
+        feedItem.appendChild(link);
+
+        // Add "Expand" button
+        let expandButton = document.createElement('button');
+        expandButton.textContent = 'Expand';
+        expandButton.onclick = function() {
+            descriptionDiv.style.display = descriptionDiv.style.display === 'none' ? 'block' : 'none';
+        };
+        feedItem.appendChild(expandButton);
+
+        // Remove any img tags from the description
+        let descriptionWithoutImages = article.description.replace(/<img[^>]*>/g, "");
+
+        // Add description
+let descriptionDiv = document.createElement('div');
+descriptionDiv.className = 'description';  // Assign the class here
+descriptionDiv.innerHTML = descriptionWithoutImages;
+descriptionDiv.style.display = 'none'; // Hide by default
+feedItem.appendChild(descriptionDiv);
+
+        container.appendChild(feedItem);
+    });
+}
+
+
+function refreshRSSFeed() {
+    aggregatedArticles = []; // Reset the aggregated articles
+
+    Promise.all(rssFeeds.map(feed => 
+        fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'ok') {
+                    data.items.forEach(item => {
+                        aggregatedArticles.push({
+                            title: item.title,
+                            link: item.link,
+                            description: item.description, 
+                            pubDate: new Date(item.pubDate),
+                            source: feed.customTitle
+                        });
+                    });
+                }
+            })
+    )).then(() => {
+        aggregatedArticles.sort((a, b) => b.pubDate - a.pubDate);
+        displayFeed(aggregatedArticles);
+    });
+}
+
+document.getElementById("refreshFeed").addEventListener("click", () => {
+    // Clear the current feed
+    document.getElementById('feedContainer').innerHTML = '';
+    // Refresh the RSS feed
+    refreshRSSFeed();
+});
+
+
+    </script>
+</body>
+
+</html>

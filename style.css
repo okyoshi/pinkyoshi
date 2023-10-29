@@ -1,0 +1,258 @@
+@font-face {
+    font-family: 'PixelNES';
+    src: url('Pixel_NES.woff') format('woff'); /* URL is relative to the location of your CSS file */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Web437';
+    src: url('Web437_NEC_APC3_8x16.woff') format('woff'); /* URL is relative to the location of your CSS file */
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PerfectDOSVGA';
+    src: url('Perfect DOS VGA 437 Win.ttf') format('truetype'); /* Use 'truetype' for .ttf files */
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+body {
+    font-family: 'Web437', sans-serif;
+   
+    background-color: #201e21; /* Background color */
+    color: #fef3ec; /* Skin Tone for main text */
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    border: 5px dashed #f72491; /* Hair Pink Highlight for border */
+    padding: 20px;
+    background-color: #080808; /* Hair Black for container background */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+header h1 {
+/*    animation: pulse 2s infinite;*/
+    color: #6bbad4; /* Eye Color for headers */
+    font-size: 3rem;
+    font-family: PixelNES;
+}
+
+@keyframes rainbow {
+  0% {color: red;}
+  14% {color: orange;}
+  28% {color: yellow;}
+  42% {color: green;}
+  57% {color: blue;}
+  71% {color: indigo;}
+  85% {color: violet;}
+  100% {color: red;}
+}
+
+@keyframes rainbowGradient {
+    0% {background-position: 100%;}
+    100% {background-position: 0%;}
+}
+
+.start-h {
+    color: #f72491; 
+    font-size: 3rem;
+    font-family: PixelNES;
+    padding-left: 15px;
+
+   
+}
+
+/*.start-h:hover {
+    background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;  
+    color: transparent;  
+    animation: rainbowGradient 3s linear infinite;
+}
+
+*/
+
+header img {
+    width: 150px;
+    height: auto;
+}
+
+marquee {
+    color: #ec4872; /* Lip Color for marquee text */
+    font-size: 1.5rem;
+    padding: 10px 0;
+    background-color: #0b0b0b; /* Dress Black for marquee background */
+    text-shadow: 2px 2px 4px #c1c3c5; /* Earring Silver for text shadow */
+    border: 3px solid #4c6c6d; /* Earring Stone for border */
+}
+
+main h2 {
+    text-decoration: underline;
+    color: #f72491; /* Hair Pink Highlight for sub-headers */
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    color: #fef3ec; /* Skin Tone */
+}
+
+a {
+    color: #C9C1BB;
+   transition: color 0.2s;
+    text-decoration: none;
+    transform: scale(1);
+    display: inline-block;
+    padding: 0px;
+}
+
+a:hover {
+    color: #6bbad4;
+}
+
+.small {
+    font-family: PerfectDOSVGA;
+}
+
+
+body#rss {
+    text-align: left;
+    padding: 20px;
+    padding-left: 40px;
+}
+
+.feed-item a {
+    color: #fef3ec; /* Skin Tone for feed links */
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px;
+    transition: color 0.3s;
+    font-family: 'PerfectDOSVGA';
+}
+
+.feed-item a:hover {
+    color: #6bbad4; /* Hair Pink Highlight on hover */
+ 
+    /* Hair Black background on hover */
+}
+
+
+button {
+    margin-left: 20px;
+    cursor: pointer;
+    background-color: #201e21;  /* Skin Tone from the provided color palette */
+    border: 1px solid #c1c3c5; /* Earring Silver from the provided color palette */
+    color: #fef3ec;             /* Hair Black from the provided color palette */
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: Web437;
+}
+
+button:hover {
+    background-color: #ec4872; /* Lip Color from the provided color palette */
+}
+
+.description {
+    opacity: 75%;
+    padding: 5px;  /* optional: adds a little space between the headline and the description */
+}
+
+
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* aligns items vertically in the middle */
+    padding-bottom: 20px;
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+}
+
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    margin-right: 15px; /* gives some spacing between the image and the button */
+}
+
+
+.rss-h {
+    color: #f72491;
+    padding-left: 25px;
+}
+
+
+.stuff {
+    display: flex;
+}
+
+
+.quote {
+    border: 0.5px solid;
+    padding: 10px 20px;
+     margin-top: 10px;
+}
+
+
+.links {
+    border: 0.5px solid;
+    padding: 10px 20px;
+    margin-top: 10px;
+}   
+
+
+.btc {
+ 
+}
+
+
+.nyt-article-link {
+   padding: 0;
+    margin: 10px 0;
+   display: block;
+   color: #C9C1BB;
+   transition: color 0.2s;
+}
+
+.nyt-article-link:hover {
+    color: #6bbad4;
+}
+
+
+
+.left {
+    width: 700px;
+}
+
+.right {
+    width: 300px;
+    margin-left: 10px;
+}
