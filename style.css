@@ -24,19 +24,12 @@
 
 body {
     font-family: 'Web437', sans-serif;
-   
+
     background-color: #201e21; /* Background color */
     color: #fef3ec; /* Skin Tone for main text */
     text-align: center;
 }
 
-.container {
-    margin: 0 auto;
-    width: 80%;
-    border: 5px dashed #f72491; /* Hair Pink Highlight for border */
-    padding: 20px;
-    background-color: #080808; /* Hair Black for container background */
-}
 
 @keyframes pulse {
     0% {
@@ -75,10 +68,10 @@ header h1 {
 
 .start-h {
     color: #f72491; 
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-family: PixelNES;
     padding-left: 15px;
-
+padding-right: 35px;
    
 }
 
@@ -98,14 +91,7 @@ header img {
     height: auto;
 }
 
-marquee {
-    color: #ec4872; /* Lip Color for marquee text */
-    font-size: 1.5rem;
-    padding: 10px 0;
-    background-color: #0b0b0b; /* Dress Black for marquee background */
-    text-shadow: 2px 2px 4px #c1c3c5; /* Earring Silver for text shadow */
-    border: 3px solid #4c6c6d; /* Earring Stone for border */
-}
+
 
 main h2 {
     text-decoration: underline;
@@ -145,6 +131,7 @@ body#rss {
     text-align: left;
     padding: 20px;
     padding-left: 40px;
+    padding-right: 40px;
 }
 
 .feed-item a {
@@ -187,7 +174,6 @@ button:hover {
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* aligns items vertically in the middle */
     padding-bottom: 20px;
 }
 
@@ -207,6 +193,7 @@ button:hover {
 .rss-h {
     color: #f72491;
     padding-left: 25px;
+
 }
 
 
@@ -249,10 +236,39 @@ button:hover {
 
 
 .left {
-    width: 700px;
+    flex: 1;  /* 2 parts of the available space */
 }
 
 .right {
-    width: 300px;
+    flex: 1;  /* 1 part of the available space */
     margin-left: 10px;
+}
+
+
+
+@media (max-width: 600px) {
+    .start-h {
+        font-size: 2.5rem;
+    }
+
+    .stuff {
+    display: block;
+}
+
+    .right {
+    /* 1 part of the available space */
+    margin-left: 0px;
+}
+
+    body#rss {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+        margin-right: 10px; /* gives some spacing between the image and the button */
+    }
+
 }
