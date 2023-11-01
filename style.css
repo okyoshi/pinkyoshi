@@ -28,8 +28,23 @@ body {
     background-color: #201e21; /* Background color */
     color: #fef3ec; /* Skin Tone for main text */
     text-align: center;
+    line-height: 1.2;
 }
 
+/*body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0; 
+    z-index: -1; 
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(100px);
+
+}
+*/
 
 @keyframes pulse {
     0% {
@@ -48,6 +63,7 @@ header h1 {
     color: #6bbad4; /* Eye Color for headers */
     font-size: 3rem;
     font-family: PixelNES;
+
 }
 
 @keyframes rainbow {
@@ -71,8 +87,7 @@ header h1 {
     font-size: 3.5rem;
     font-family: PixelNES;
     padding-left: 15px;
-padding-right: 35px;
-   
+padding-right: 25px;
 }
 
 /*.start-h:hover {
@@ -184,8 +199,8 @@ button:hover {
 
 
 .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin-right: 15px; /* gives some spacing between the image and the button */
 }
 
@@ -266,9 +281,19 @@ button:hover {
 }
 
     .profile-pic {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         margin-right: 10px; /* gives some spacing between the image and the button */
     }
 
+}
+
+.star {
+    width: 50px;
+    height: 50px;
+}
+
+
+#quote {
+    padding: 10px 0px;
 }
