@@ -32,23 +32,23 @@ fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
 });
 
 
-fetch('https://rss.nytimes.com/services/xml/rss/nyt/World.xml')
-    .then(response => response.text())
-    .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+
+fetch('https://api.rss2json.com/v1/api.json?rss_url=https://rss.nytimes.com/services/xml/rss/nyt/World.xml')
+    .then(response => response.json())
     .then(data => {
-        let items = data.getElementsByTagName('item');
+        let items = data.items;
         let targetElement = document.getElementById('nyt-links');
         targetElement.innerHTML = ''; // clear the placeholder
 
-        // Ensure there are at least three items; if not, adjust the count
+        // Ensure there are at least five items; if not, adjust the count
         let count = Math.min(items.length, 5);
 
         for (let i = 0; i < count; i++) {
-            let headline = items[i].getElementsByTagName('title')[0].textContent;
-            let url = items[i].getElementsByTagName('link')[0].textContent;
+            let headline = items[i].title;
+            let url = items[i].link;
 
             // Extract the publication date and convert it to a Date object
-            let pubDate = items[i].getElementsByTagName('pubDate')[0].textContent;
+            let pubDate = items[i].pubDate;
             let dateObj = new Date(pubDate);
 
             // Adjust for UTC+1 timezone (3600000 milliseconds = 1 hour)
@@ -76,7 +76,7 @@ fetch('https://rss.nytimes.com/services/xml/rss/nyt/World.xml')
         }
     })
     .catch(error => {
-        console.error('Error fetching NYT headlines:', error);
+        console.error('Error fetching headlines:', error);
     });
 
 
