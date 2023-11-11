@@ -25,7 +25,7 @@
 body {
     font-family: 'Web437', sans-serif;
 
-    background-color: #201e21; /* Background color */
+    background-color: #120a0c; /* Background color */
     color: #fef3ec; /* Skin Tone for main text */
     text-align: center;
     line-height: 1.2;
@@ -83,23 +83,21 @@ header h1 {
 }
 
 .start-h {
-    color: #f72491; 
+    color: #e836a1; 
     font-size: 3.5rem;
     font-family: PixelNES;
     padding-left: 15px;
 padding-right: 25px;
+transition: 0.3s ease;
 }
 
-/*.start-h:hover {
-    background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet, red, orange, yellow, green, blue, indigo, violet, red);
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;  
-    color: transparent;  
-    animation: rainbowGradient 3s linear infinite;
+.start-h:hover {
+/*    color: #ff6dc5;*/
+    transition: 0.3s ease;
+    text-shadow: 0px 5px #fbaddc;
 }
 
-*/
+
 
 header img {
     width: 150px;
@@ -110,7 +108,7 @@ header img {
 
 main h2 {
     text-decoration: underline;
-    color: #f72491; /* Hair Pink Highlight for sub-headers */
+    color: #e836a1; /* Hair Pink Highlight for sub-headers */
 }
 
 ul {
@@ -134,11 +132,13 @@ a {
 }
 
 a:hover {
-    color: #6bbad4;
+    color: #e836a1;
 }
 
 .small {
     font-family: PerfectDOSVGA;
+    padding: 0;
+    margin: 0 0 0 0;
 }
 
 
@@ -159,7 +159,7 @@ body#rss {
 }
 
 .feed-item a:hover {
-    color: #6bbad4; /* Hair Pink Highlight on hover */
+    color: #e836a1; /* Hair Pink Highlight on hover */
  
     /* Hair Black background on hover */
 }
@@ -176,7 +176,7 @@ button {
 }
 
 button:hover {
-    background-color: #ec4872; /* Lip Color from the provided color palette */
+    background-color: #e836a1; /* Lip Color from the provided color palette */
 }
 
 .description {
@@ -218,9 +218,9 @@ button:hover {
 
 
 .quote {
-    border: 0.5px solid;
-    padding: 10px 20px;
-     margin-top: 10px;
+    border: 0.5px solid #e836a1;
+    padding: 20px 20px;
+    margin-top: 10px;
 }
 
 
@@ -232,8 +232,10 @@ button:hover {
 
 
 .btc {
- 
+    margin-right: 10px;
+
 }
+
 
 
 .nyt-article-link {
@@ -245,7 +247,7 @@ button:hover {
 }
 
 .nyt-article-link:hover {
-    color: #6bbad4;
+    color: #e836a1;
 }
 
 
@@ -263,7 +265,7 @@ button:hover {
 
 @media (max-width: 600px) {
     .start-h {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .stuff {
@@ -295,5 +297,38 @@ button:hover {
 
 
 #quote {
-    padding: 10px 0px;
+ line-height: 1.4;
 }
+
+
+
+.linksss {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+
+
+.linkss {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+
+
+
+.linksss a {
+    margin-right: 35px;
+}
+
+
+.linkss p {
+    margin: 0 10px 0 0;
+    padding: 0 25px 0 0;
+}
+
+
